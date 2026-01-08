@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="manifest" href="manifest.json">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACKINK ZAMBIA | Premier Tattoo Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("q2NBkY_2PB_3LLbIH"); 
+        })();
+    </script>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>BLACKINK <span class="accent-green">ZAMBIA</span></h1>
+                <p class="tagline">INKED WITH PASSION</p>
+                <div class="hero-btns">
+                    <a href="#booking" class="btn-primary">Book Appointment</a>
+                    <a href="#manage" class="btn-secondary">My Bookings</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="booking" class="glass-section">
+            <h2 class="text-purple">Secure Your Session</h2>
+            <form id="appointment-form">
+                <div class="form-row">
+                    <input type="text" id="name" placeholder="Full Name" required>
+                    <input type="tel" id="phone" placeholder="Mobile Number (e.g. 097...)" required>
+                </div>
+                <div class="form-row">
+                    <input type="date" id="date" required>
+                    <select id="time" required>
+                        <option value="" disabled selected>Select Time Slot</option>
+                        <option value="09:00 AM">09:00 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="01:00 PM">01:00 PM</option>
+                        <option value="02:00 PM">02:00 PM</option>
+                        <option value="03:00 PM">03:00 PM</option>
+                        <option value="04:00 PM">04:00 PM</option>
+                    </select>
+                </div>
+                <textarea id="tattoo-description" placeholder="Describe your tattoo vision..." required></textarea>
+                <button type="submit" class="cta-submit">SEND BOOKING REQUEST</button>
+            </form>
+        </section>
+
+        <section id="manage" class="glass-section">
+            <h2 class="text-green">Manage Your Appointments</h2>
+            <div class="search-box">
+                <input type="tel" id="manage-phone" placeholder="Enter your mobile number">
+                <button type="button" onclick="loadAppointments()" class="btn-primary">Find My Bookings</button>
+            </div>
+            <ul id="appointments"></ul>
+        </section>
+
+        <section id="user-uploads" class="glass-section">
+            <h2 class="text-blue">Upload Your Reference Art</h2>
+            <div class="upload-controls">
+                <input type="file" id="customer-design-upload" accept="image/*" style="display: none;">
+                <button type="button" class="btn-primary" onclick="document.getElementById('customer-design-upload').click()">
+                    📸 CHOOSE IMAGE
+                </button>
+            </div>
+            <div id="customer-preview-gallery" class="gallery-grid"></div>
+        </section>
+
+        <section id="design" class="glass-section">
+            <h2 class="text-green">Sketch Your Idea</h2>
+            <canvas id="tattoo-canvas" width="400" height="400" style="background: white; border-radius: 10px;"></canvas>
+            <div class="tool-bar">
+                <input type="color" id="color-picker" value="#000000">
+                <button type="button" id="clear">Clear Canvas</button>
+                <button type="button" id="save">Save Sketch</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="tattoo-app.js"></script>
+</body>
+</html>
